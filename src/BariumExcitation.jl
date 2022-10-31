@@ -9,6 +9,13 @@ using Interpolations
 using LinearAlgebra
 using PhysicalConstants.CODATA2018: m_e, c_0, h
 
+# Transition matrix for the 2 state model (equilibrium ionization rate)
+const k_eq = 1/28u"s" # equilibrium ionization rate
+const Q_2 = [
+    0u"s^-1" k_eq;
+    0u"s^-1" -k_eq
+]
+
 # Transition matrix for the 4 state model (Carlsten 1974)
 const k1i = 0.0014u"s^-1"
 const k2i = 0.033u"s^-1"
