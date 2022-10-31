@@ -329,5 +329,6 @@ function transition_matrix(; states="22", fluxes="modern")
 end
 
 const Q = transition_matrix()
+const Q_classic = transition_matrix(; fluxes="classic")
 
 end # module BariumExcitation
