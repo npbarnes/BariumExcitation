@@ -1,5 +1,7 @@
 module BariumExcitation
 
+export Q, Q_classic, QQ
+
 using CSV
 using Unitful
 using Missings
