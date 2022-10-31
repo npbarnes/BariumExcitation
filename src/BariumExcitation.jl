@@ -1,6 +1,6 @@
 module BariumExcitation
 
-export Q, Q_classic, QQ
+export Q_2, Q_4, Q_22, Q_22_classic
 
 using CSV
 using Unitful
@@ -26,7 +26,7 @@ const kt1 = 0.4u"s^-1"
 const k1t = 0.55u"s^-1"
 const k2t = 12.19u"s^-1"
 const kt2 = 2.48u"s^-1"
-const QQ = [ # Transition Matrix (transposed)
+const Q_4 = [ # Transition Matrix (transposed)
     0u"s^-1"       k1i            k2i            kti;
     0u"s^-1" -(k1i+k12+k1t)       k21            kt1;
     0u"s^-1"       k12      -(k2i+k21+k2t)       kt2;
@@ -309,7 +309,7 @@ function transition_matrix(; states="22", fluxes="modern")
     end
     if states == "4"
         if fluxes=="classic"
-            return QQ
+            return Q_4
         else
             error("4 state model with modern fluxes not implemented")
         end
@@ -337,7 +337,7 @@ function transition_matrix(; states="22", fluxes="modern")
     Q
 end
 
-const Q = transition_matrix()
-const Q_classic = transition_matrix(; fluxes="classic")
+const Q_22 = transition_matrix()
+const Q_22_classic = transition_matrix(; fluxes="classic")
 
 end # module BariumExcitation
