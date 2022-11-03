@@ -38,7 +38,7 @@ const e = 4.803206799E-10u"g^(1/2)*cm^(3/2)*s^-1"
 const C = π*e^2/(m_e*c_0^3*h)
 const quadrupole_rate = 2.0u"s^-1"
 
-const solarspectrum = CSV.File("solarspectrum.csv")
+const solarspectrum = CSV.File(joinpath(pkgdir(BariumExcitation), "solarspectrum.csv"))
 const interpolator = linear_interpolation(solarspectrum.Wavelength*u"μm", solarspectrum.var"Energy Flux Density"*u"W*m^-2*μm^-1")
 interpolated_flux(λ) = passmissing(interpolator)(λ)
 
